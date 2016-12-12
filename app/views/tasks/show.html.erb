@@ -1,0 +1,17 @@
+<div class ="task-div" >
+	<p>
+	  <strong>Title:</strong>
+	  <%= @task.title %>
+	</p>
+
+	<p>
+	  <strong>User:</strong>
+	  <%= @task.user_name %>
+	</p>
+	 
+	<p>
+	  <strong>Description:</strong>
+	  <%= @task.description %>
+	</p>
+	<%= link_to 'Edit',  edit_project_task_path(@task) %>
+</div>

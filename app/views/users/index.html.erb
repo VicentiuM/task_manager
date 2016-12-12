@@ -1,0 +1,15 @@
+<h1>Users</h1>
+ 
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Avatar</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.email, '/users/' + user.id.to_s %></td>
+      <td><%= image_tag user.avatar.url(:thumb) %></td>
+    </tr>
+  <% end %>
+</table>

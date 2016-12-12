@@ -1,0 +1,41 @@
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @project.user_name %>
+</p>
+
+<h2>Add user to project:</h2>
+<%= form_for :user, url: projects_path do |f| %>
+  <p>
+    <%= f.label :user_name %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Add a task:</h2>
+<%= render 'tasks/form' %>
+
+
+<h2>Listing tasks</h2>
+<% @name = "-1" %>
+<% for f in @project.tasks.order(user_name: :asc) do %>
+  <% if @name.eql? f.user_name %>
+    <%= render f %>
+  <% else %>
+    <% @name = f.user_name %>
+    <% if f.user_name? %>
+      <%= "-----------" + f.user_name + "-----------" %>
+    <% else %>
+      <%= "----------------------" %>
+    <% end %>
+    <%= render f %>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= @user.email %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+<h1>My Projects</h1>
+<%= link_to '+ New Project', '/projects/new' %>
+ 
+<table>
+  <tr>
+    <th>Avatar</th>
+    <th>Title</th>
+  </tr>
+ 
+  <% @projects.each do |project| %>
+    <tr>
+      <% if project.user_name.eql? @user.email %>
+	    <td><%= image_tag project.avatar.url(:thumb) %></td>
+	    <td><%= link_to project.title, project_path(project) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

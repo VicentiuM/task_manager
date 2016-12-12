@@ -1,0 +1,19 @@
+<h1>Projects</h1>
+<%= link_to '+ New Project', '/projects/new' %>
+ 
+<table>
+  <tr>
+    <th>Avatar</th>
+    <th>Title</th>
+    <th>Owner</th>
+  </tr>
+ 
+  <% @projects.each do |project| %>
+    <tr>
+
+      <td><%= image_tag project.avatar.url(:thumb) %></td>
+      <td><%= link_to project.title, project_path(project) %></td>
+      <td><%= link_to project.user_name, '/users/' + project.user_id.to_s %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,21 @@
+<%= form_for([@project, @project.tasks.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :to_whom %><br>
+    <%= f.text_area :user_name %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
